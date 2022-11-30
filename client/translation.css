@@ -1,0 +1,81 @@
+#floating-menu {
+  background: transparent !important;
+  border: 3px solid white;
+  border-radius: 50%;
+  padding: 5px;
+  /* width: 50px; */
+  /* height: 50px; */
+  z-index: 100;
+  position: absolute;
+  bottom: 100%;
+  right: 20px;
+  cursor: pointer;
+  line-height: 1;
+  vertical-align: middle;
+  padding: calc(0.625rem);
+  font-weight: 600;
+  color: var(--btn-default-bg, var(--color-white, #fff));
+}
+
+#floating-menu:active {
+  animation: press 0.2s 1 linear;
+}
+
+@keyframes press {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.92);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+#cc-container {
+  display: flex;
+  width: 100%;
+  bottom: 100%;
+  z-index: 99;
+  position: absolute;
+  flex-direction: column;
+}
+
+#cc-area {
+  /* align-items: center; */
+  /*overflow: hidden; */
+  width: calc(100% - 68px);
+  /* max-width: 60%; */
+  /* min-height: 3px; */
+  height: 50px;
+  background: rgba(0, 0, 0, 0.8);
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  overflow-y: auto;
+}
+/* Closed caption font */
+
+#cc-text {
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.5;
+  /* font-family: Verdana, Arial, Helvetica, sans-serif; */
+}
+
+.lan-btn {
+  background: #ccc;
+  min-width: 50px;
+  height: 30px;
+  border: none;
+  color: #333;
+  padding: 0;
+  cursor: pointer;
+}
