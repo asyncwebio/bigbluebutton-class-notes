@@ -4,17 +4,17 @@ let meetingId,
   recorder,
   isRecording,
   assymblySocket,
+  padAPIToken,
   timer;
 
 let isAddTranscriptionToNotedEnabled = false;
 
-const padAPIToken =
-  "NbjYGryqHjX7HX360uC9zXpstpgnwq0ECgJqDDysaO1VwaBhHBK82rKRmplN1";
-
-const socket = io("https://tts.higheredlab.com");
+const socket = io("https://bbb01.quiklrn.net", {
+  path: "/bigbluebutton-lecture-note-ws",
+});
 let padId;
 
-socket.on("TRANSLATED", (data) => {
+socket.on("TEXT", (data) => {
   if (data[sourceLanguage]) {
     setText(data);
   }
@@ -195,6 +195,13 @@ const checkElement = async (selector) => {
   return true;
 };
 
+const getPadToken = async () => {
+  const url = `https://bbb01.quiklrn.net/bigbluebutton-lecture-note/v1/token/etherpad`;
+  const res = await fetch(url);
+  const { token } = await res.json();
+  return token;
+};
+
 const setData = async () => {
   const currentURL = new URL(window.location.href);
   const sessionToken = currentURL.searchParams.get("sessionToken");
@@ -210,6 +217,7 @@ const setData = async () => {
       sourceLanguage = meta["translation-source-language"].trim();
     }
   });
+  padAPIToken = await getPadToken();
 };
 
 const btnClick = (elm) => {
@@ -238,7 +246,6 @@ const setText = (data) => {
     const texts = elm.innerText;
     elm.innerText = texts + data[sourceLanguage].text;
     elm.scrollIntoView(false);
-    // elm.scrollTop = elm.scrollHeight;
 
     // start the timer
     timer = setTimeout(() => {

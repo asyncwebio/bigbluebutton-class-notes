@@ -22,4 +22,9 @@ export class AppService {
       console.log(error);
     }
   }
+  getEtherPadToken() {
+    return {
+      token: process.env.ETHER_PAD_TOKEN,
+    };
+  }
 }

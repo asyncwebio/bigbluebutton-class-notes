@@ -7,7 +7,7 @@ async function bootstrap() {
       origin: true,
     },
   });
-  app.setGlobalPrefix('/api');
+  app.setGlobalPrefix('bigbluebutton-lecture-note');
   await app.listen(parseInt(process.env.PORT) || 3000);
 }
 bootstrap();

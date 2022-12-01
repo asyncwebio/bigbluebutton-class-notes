@@ -9,6 +9,7 @@ import { Server, Socket } from 'socket.io';
 import { WsService } from './ws.service';
 
 @WebSocketGateway({
+  path: '/bigbluebutton-lecture-note-ws',
   cors: {
     origin: '*',
   },
@@ -28,7 +29,7 @@ export class WsGateway implements OnGatewayConnection {
       meetingId: string;
     },
   ) {
-    this.server.in(data.meetingId).emit('TRANSCRIPTION', {
+    this.server.in(data.meetingId).emit('TEXT', {
       [data.sourceLang]: {
         text: data.transcription,
       },
