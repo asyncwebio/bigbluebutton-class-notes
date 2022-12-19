@@ -1,0 +1,14 @@
+assembly_ai_api_key: "YOUR_API_KEY"
+
+# run bbb-conf --secret to get the bbb server name
+# example https://bbb.example.com
+bbb_url: "YOUR_BBB_URL"
+
+# possible values: metadata, always
+#if set to metadata, you need to use meta_class_notes_enabled=true in create call
+trigger_mode: "metadata"
+
+# video format is available in /usr/local/bigbluebutton/core/scripts/presentation.yml
+bbb_playback_video_format: "webm"
+
+bbb_event_dir: "/var/bigbluebutton/events"

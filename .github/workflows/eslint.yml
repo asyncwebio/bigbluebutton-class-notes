@@ -1,0 +1,23 @@
+name: "EsLint"
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    name: "lint (node: ${{ matrix.node }})"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm install
+      - name: Run lint
+        working-directory: ./frontend
+        run: npm run  lint
