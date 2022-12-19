@@ -82,6 +82,8 @@ vi /usr/local/bigbluebutton/core/scripts/post_publish/class_notes_config.yml
 
 get the api key from https://www.assemblyai.com and update `assembly_ai_api_key` variable in class_notes_config.yml
 
+If you set the `trigger_mode: "metadata"` in config file you need to pass `meta_class_notes_enabled=true` in meeting create call
+
 <br/>
 
 ### Frontend
