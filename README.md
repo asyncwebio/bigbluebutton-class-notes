@@ -47,7 +47,7 @@ Class Notes provides you automated notes of the online classes that you can easi
 The requirements to Setup Class Notes.
 
 1. BigBlueButton Server.
-2. bbb-mp4 installed.
+2. [bbb-mp4](https://github.com/manishkatyan/bbb-mp4) installed.
 
 <br/>
 
@@ -81,6 +81,8 @@ vi /usr/local/bigbluebutton/core/scripts/post_publish/class_notes_config.yml
 ```
 
 get the api key from https://www.assemblyai.com and update `assembly_ai_api_key` variable in class_notes_config.yml
+
+Note: You will only get 3 hours of transcription per month in free plan.
 
 If you set the `trigger_mode: "metadata"` in config file you need to pass `meta_class_notes_enabled=true` in meeting create call
 
@@ -120,6 +122,12 @@ cp -r build/* /var/bigbluebutton/class-notes
 ```
 
 <br/>
+
+## How to
+
+Once you visit bigbluebutton playback page, you will see class notes button at bottom of the screen if class notes is available. Click on that.
+
+Class notes will be opened in another tab, `https://<your_bbb_server>/class-notes/?meetingId=<meetingId>`
 
 ## 📝 License
 
